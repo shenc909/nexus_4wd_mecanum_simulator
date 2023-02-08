@@ -1,4 +1,6 @@
-DWAPlannerROS:
+# DWAPlannerROS:
+DWAResamplePlannerROS:
+
 
 # Robot Configuration Parameters
   max_vel_x: 1.0   ####0.6 #0.4          #0.8   #0.26
@@ -37,7 +39,7 @@ DWAPlannerROS:
   path_distance_bias: 32.0 #NEW 50.0 #32.0
   goal_distance_bias: 15.0
   occdist_scale: 0.1 #NEW 0.1   #0.05    #0.02
-  forward_point_distance: 0.05   #0.05    #0.325   #1.0    
+  forward_point_distance: 0.5   #0.05    #0.325   #1.0    
   stop_time_buffer: 0.5
   scaling_speed: 0.25
   max_scaling_factor: 0.2
