@@ -1,0 +1,68 @@
+<launch>
+<!-- move base -->
+
+    <arg name="global_frame" default="map"/>
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <!-- <param name="footprint_padding" value="0.01" />
+        <param name="controller_frequency" value="5.0" />
+        <param name="controller_patience" value="3.0" />
+        <param name="oscillation_timeout" value="30.0" />
+        <param name="oscillation_distance" value="0.5" />
+        <param name="planner_patience" value="1" />
+        <param name="controller_patience" value="1" /> 
+        <remap from="cmd_vel" to="mobile_base/commands/velocity"/>
+        <param name="recovery_behavior_enabled" value="false" /> -->
+
+        <!-- <param name="base_global_planner" value="global_planner/GlobalPlanner" /> -->
+        <param name="base_global_planner" value="navfn/NavfnROS"/>
+        <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+
+        <!-- observation sources located in costmap_common.yaml -->
+        <rosparam file="$(find nexus_4wd_mecanum_gazebo)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find nexus_4wd_mecanum_gazebo)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+
+        <!-- local costmap, needs size -->
+        <rosparam file="$(find nexus_4wd_mecanum_gazebo)/params/local_costmap_params.yaml" command="load" />
+
+        <!-- static global costmap, static map provides size -->
+        <rosparam file="$(find nexus_4wd_mecanum_gazebo)/params/global_costmap_params.yaml" command="load"/>
+
+        <!-- <rosparam file="$(find rrt_exploration_tutorials)/param/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find rrt_exploration_tutorials)/param/global_costmap_params.yaml" command="load" /> -->
+
+        <!-- TODO: MODIFIED -->
+
+        <rosparam file="$(find nexus_4wd_mecanum_gazebo)/params/dwa_local_planner_params.yaml" command="load"/>
+
+        <!-- <rosparam file="$(find rrt_exploration_tutorials)/param/base_local_planner_params.yaml" command="load" /> -->
+
+        <rosparam file="$(find nexus_4wd_mecanum_gazebo)/params/global_planner.yaml" command="load"/> 
+        <rosparam file="$(find nexus_4wd_mecanum_gazebo)/params/move_base_params.yaml" command="load"/>
+
+        <param name="global_costmap/global_frame" value="$(arg global_frame)"/>
+        <param name="global_costmap/robot_base_frame" value="base_footprint"/>
+
+        <!--<param name="global_costmap/obstacle_layer/scan/sensor_frame" value="$(arg namespace)/base_scan"/>
+        <param name="global_costmap/obstacle_layer/scan/topic" value="/$(arg namespace)/scan"/>   -->
+
+        <param name="local_costmap/global_frame" value="odom"/>
+        <param name="local_costmap/robot_base_frame" value="base_footprint"/>
+
+        <!-- <param name="local_costmap/obstacle_layer/scan/sensor_frame" value="$(arg namespace)/base_scan"/>
+        <param name="local_costmap/obstacle_layer/scan/topic" value="/$(arg namespace)/scan"/> -->
+
+        <param name="DWAPlannerROS/global_frame_id" value="odom"/>
+        <param name="controller_frequency" value="5"/>
+        <param name="TrajectoryPlannerROS/max_vel_theta" value="0.4"/>
+        <param name="TrajectoryPlannerROS/min_in_place_vel_theta" value="0.1"/>
+        <param name="TrajectoryPlannerROS/acc_lim_theta" value="1.0"/>
+        <param name="recovery_behavior_enabled" value="true" />
+        <param name="clearing_rotation_allowed" value="false" />
+
+        <!-- <remap from="cmd_vel" to="/mcu/command/ros_twist"/> -->
+        <!-- <remap from="odom" to="bullet_odom"/> -->
+        <!-- <remap from="scan" to="scan"/> -->
+
+    </node>
+
+</launch>
