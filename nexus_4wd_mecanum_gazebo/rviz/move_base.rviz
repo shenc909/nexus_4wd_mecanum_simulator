@@ -6,9 +6,6 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Axes1
-        - /Map3
-        - /Path3
       Splitter Ratio: 0.5
     Tree Height: 925
   - Class: rviz/Selection
@@ -67,9 +64,9 @@ Visualization Manager:
     - Alpha: 1
       Class: rviz/Axes
       Enabled: true
-      Length: 1
+      Length: 0.5
       Name: Axes
-      Radius: 0.10000000149011612
+      Radius: 0.05000000074505806
       Reference Frame: base_footprint
       Show Trail: false
       Value: true
@@ -101,7 +98,7 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
-    - Alpha: 0.30000001192092896
+    - Alpha: 0.10000000149011612
       Class: rviz/Map
       Color Scheme: costmap
       Draw Behind: false
@@ -111,7 +108,7 @@ Visualization Manager:
       Unreliable: false
       Use Timestamp: false
       Value: true
-    - Alpha: 0.699999988079071
+    - Alpha: 0.30000001192092896
       Class: rviz/Map
       Color Scheme: costmap
       Draw Behind: false
@@ -230,7 +227,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 10
+      Distance: 15.3950834274292
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -238,17 +235,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: -5.358359336853027
+        Y: 4.649546146392822
+        Z: 0.3802297115325928
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.785398006439209
+      Pitch: 1.2353975772857666
       Target Frame: <Fixed Frame>
-      Yaw: 0.785398006439209
+      Yaw: 5.238569736480713
     Saved: ~
 Window Geometry:
   Displays:
@@ -266,5 +263,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1761
-  X: 60
-  Y: 40
+  X: 594
+  Y: 183

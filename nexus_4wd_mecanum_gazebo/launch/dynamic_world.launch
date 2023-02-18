@@ -21,4 +21,8 @@
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
         args="-urdf -model nexus_4wd_mecanum -param robot_description -x 0 -y 0 -z 0.1" />
 
+<include file="$(find nexus_4wd_mecanum_gazebo)/launch/amcl.launch">
+  <arg name="map_file" value="$(find nexus_4wd_mecanum_gazebo)/maps/empty_room.yaml"/>
+</include>
+
 </launch>
