@@ -16,8 +16,8 @@
         <!-- <param name="base_global_planner" value="global_planner/GlobalPlanner" /> -->
         <param name="base_global_planner" value="navfn/NavfnROS"/>
 
-        <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
-        <!-- <param name="base_local_planner" value="dwa_resample_local_planner/DWAResamplePlannerROS"/> -->
+        <!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/> -->
+        <param name="base_local_planner" value="dwa_resample_local_planner/DWAResamplePlannerROS"/>
 
         <!-- observation sources located in costmap_common.yaml -->
         <rosparam file="$(find nexus_4wd_mecanum_gazebo)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
@@ -34,7 +34,7 @@
 
         <!-- TODO: MODIFIED -->
 
-        <rosparam file="$(find nexus_4wd_mecanum_gazebo)/params/dwa_local_planner_params.yaml" command="load"/>
+        <rosparam file="$(find nexus_4wd_mecanum_gazebo)/params/dwa_resample_local_planner_params.yaml" command="load"/>
 
         <!-- <rosparam file="$(find rrt_exploration_tutorials)/param/base_local_planner_params.yaml" command="load" /> -->
 

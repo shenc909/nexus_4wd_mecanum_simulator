@@ -13,7 +13,7 @@ global_costmap:
 
   width: 50.0
   height: 50.0
-  #resolution: 0.05
+  resolution: 0.05
   
 
   plugins:
